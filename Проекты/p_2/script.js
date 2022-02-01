@@ -42,24 +42,44 @@ const personalMovieDB = {
     privat: false
 }
 
-while (numberOfFilms >0) {
-    const a = prompt('Один из последних просмотренных фильмов?', ''),
-          b = +prompt('На сколько оцените его?', '');
+// while (numberOfFilms >0) {
+//     const a = prompt('Один из последних просмотренных фильмов?', ''),
+//           b = +prompt('На сколько оцените его?', '');
     
           
-    switch (b) {
-        case 5:
-            alert('Оценили на отлично!');
-            break;
-        case 4:
-            alert('Оценили на хорошо!');
-            break;
-        default:
-            alert('Вы ввели число не 4 и не 5 :(');
-            break;
-    }
-    personalMovieDB.movies[a] = b;
-    numberOfFilms--;
+//     switch (b) {
+//         case 5:
+//             alert('Оценили на отлично!');
+//             break;
+//         case 4:
+//             alert('Оценили на хорошо!');
+//             break;
+//         default:
+//             alert('Вы ввели число не 4 и не 5 :(');
+//             break;
+//     }
+//     personalMovieDB.movies[a] = b;
+//     numberOfFilms--;
+// }
+
+// через FOr
+for(let i = 0; i < numberOfFilms; i++){
+    const a = prompt('Один из последних просмотренных фильмов?', ''),
+          b = +prompt('На сколько оцените его?', '');
+     if (a != null  // не нажал отмену, т.к если бы нажал то записалось бы null 
+         && b != null 
+         && a != '' // не ввел пустую строку,
+         && b != ''
+         && a.length < 50
+         )
+         {
+            personalMovieDB.movies[a] = b;
+            console.log('well inserted correct data about film');
+         } else {
+            console.log('error');
+            i--;
+         }
+    
 }
 
 

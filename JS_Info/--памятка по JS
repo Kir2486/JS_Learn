@@ -79,7 +79,771 @@ promt  - только внутри браузера
 И  &&   (логическое умножение)
 ИЛИ ||  (логическое сложение)
 
-ОТРИЦАНИЕ !!!
+ОТРИЦАНИЕ !
+
+Условия If else switch
+Циклы
+	while
+	for 
+		break;
+		continue;
+
+Функции, стрелочные функции 	
+	локальные - глобальные переменные 
+	замыкание функций (функция со всеми переменными итд внутри себя -если просто  \ серва ищет переменные локально - если не находит - глобально)
+	return
+	function declaration - создаются до старта самого script  (без ; в конце {}  )
+	function expression - создается толко тогда, когда доходит поток кода, можно вызывать только после объявления
+		пример - const logger = function() {}; //Точка с запятой в конце т.к объявляем переменную в отличии от function declaration вызов:   logger();
+
+	Стрелочная функция - 
+
+Методы и свойства строк и чисел - 
+	const srt = 'asdasd'
+	lenght (применимо с строкам, массивам)
+	dir() - функция для описания объекта и тд
+	str[2] - получить по индексу
+	str.toUpperCase(); -- применили функцию toUpperCase() к str
+	str.indexOf('строка начала') -- найти индекс начала строки искомого значенгия \ -1 если не найдено
+	str.slice(indxStart, indxEnd) -- по типу substr только начало и конец
+    str.substring(indxStart, indxEnd) -- по типу substr только начало и конец
+    str.substr(indxStart, lengthString) -- по типу substr только начало и конец
+
+    Библиотека Math 
+    	round
+    Вспомогательные функции
+    	parseInt - для парсинга инта внутри строки
+    	parseFloat - возврат числа из строки с плавающей точкой 
+     Метод IsNan - проверка на не число 
+
+Callback функции  (последовательное исполнения функций)
+	"Функции запускаются в коде одна за другой но результат  могут дать в разное время"\
+
+	function learnJS(lang, callback) -- ключевое словоо в аргументах функции (callback) , при вызове на жтом место можем вставлять анонимную или обычную функцию
+
+Объекты - углубленно
+	delete -- для удаления свойства объекта
+	for in конструкция для прохода по свойстам объекта
+		for (let key in obj) {
+			dosmth;
+			key имеет значение obj[key]
+		}
+	Методы объекта
+		Object.keys(nameOfObject) --выводит массив
+		+
+		можно посчитать кол-во ел-ов массива
+		Object.keys(nameOfObject).length
+	  Можно создавать метод объекта и вызывать через 
+	  	objName.funcNameInObj();
+    Деструктуризация объекта
+    	const {vorder, bg} = objName.propertyObj; 
+    			-- где  objName.propertyObj это объект как одно из свойств объекта, 				
+					propertyObj:{vorder: 'value1',
+								  bg: 'value2
+
+Массивы псевдомассивы 
+	pop() удаляет посл елемент массива
+	push(value) - добавляет елемент в конец массива
+
+	Перебор елементов массива 
+		через обычный for (let i=0; i< arr.lenght; i++) {}
+		через for of
+			for (let value of arr){ };
+
+    свойство length - не кол-во елементов массива А индекс последнего елемента + 1 
+    	при этом данные в массиве могут идти не по порядку !
+
+    forEach - метод перебор елементов, принимает в себя callback функцию 
+    	применяет функцию на каждый елемент
+
+    map() etc модифицирует исходный массив 
+
+    sort() - сортирует все как строки - можно сказать как именно сортировать 
+
+    arr.split()
+    arr.join()
+
+----------
+Передача ланных по сылке и по значению 
+	по сылке const copy = obj // where obj is object
+	по сылке = изменине копии оьбъекта = изменения исходного ==> неудобство => хаки как это отбойти и создать 
+	копию в разрыве от исходного
+
+	Object.assign(obj1, obj2) для помещения объекта obj2 в obj1
+
+	копирование через:  const copyofobj2 = Object.assign({}, obj2);
+	копирование через спец функцию копирования
+
+	коопия также через
+		const obj1
+		obj2 = {...obj1};
+
+
+
+	Копия массива 
+		нелья через = т.к будет передача данных по ссылке 
+		как вариант использовать 
+			arr1 = arra2.slice();
+
+		+ через оператор разворта 
+		const arr1 = [1 , 3, 5];
+		const arr2 = [...arr1];
+
+Оператор разворота 
+	m = [1,2,3]
+	d = [4,5,6]
+	c = [...m, ...d, 17, 123] -- ... оператор разворота, чтобы с = [1, 2, 3, 4, 5, 6, 17, 123]
+
+
+	const num = [2 , 5 ,6];
+
+	log(...num); --на каждый аргутмен массива num будет запущена log
+
+
+Основы ООП 
+	устаревшее свойство __proto__
+		const soldier = {var1, var2, function}
+	устаревший синтаксис установка прототипа объекта 
+		john.__proto__ = soldier; -- установили прототип 
+
+	новый синтаксис 
+		сразу создаем объекта от прототипа
+			const john = Object.create(soldier);
+
+		или назначить прототип имеющимуся объекту
+			Object.setPrototypeOf(john, soldier);
+
+Работа с инструментами консоли в браузере
+Дебаггер 
+
+Динамическая типизация (способность изменения типа чего-то)
+	сложение со строкой = строка  
+		typeof(5 + '')   => STRING
+	унарный плюс 
+	 	typeof(+'5') ==> тгьиук 
+	 	или через 
+	 		let anser = +prompt("hrllo", '');
+	to boolean 
+		FALSE = 0, '', null, undefined, NaN 
+		
+		Исполльзутся часто на странице - пока нет елемента он = null 
+			проверяется просто черещ if(element)
+			т.к он был null - if null -- false
+
+	!! - превращает операцию в булиновую 
+
+
+---------------------------------------------------------
+
+Получение елементов со страницы 
+	document.getElementById('box') --box это id 
+	document.getElementsByTagName('button') --button - имя тега, на выходе получает HTML коллекцию 
+
+	При необходимости работы с елементом, изменении, нужно выбрать елемент коллекции через [index]
+		htmlcol[1] - второй елемент коллекции htmlcol
+
+	document.GetElementsByClassName - получем HTML коллекцию 
+
+	document.querySelectorAll('CSS селектор') - отличие в том, что нужно обращаться через CSS селектор по типу 
+		document.querySelectorAll('#idcol')    
+		document.querySelectorAll('.classname')
+
+	Для querySelectorAll возможно применять forEach
+		const hearts = document.querySelectorAll('.heart'); -- взяли елементы класса  	heart
+
+		hearts.forEach(item => {          ---использовали стрелочную запись функции (callback функция)
+				console.log(item);	
+			});
+
+	document.querySelector() --берет первый елемент найденный на странице 
+
+
+	+ все селекторы можно провододить через определенного родителя и обращаться уже через него 
+		const wrapper = document.getElementsByTagName('button');
+		const new_r = wrapper.getElementById('box'); -- применяем getElementById уже внутри wrapper
+
+------------------------------------------------------------
+Действия с елементами на странице 
+	через .style
+		box.style.backgroundColor = 'blue';
+		box.style.width = '500px';
+
+	Нельзя поменять стили HTML коллекции (псевдомассива) - нужно знать точно конкретный елемент
+		Поэтому можно сделать через цикл,но есть готовые функции перебора, например forEach
+
+		hearts.forEach(item => {
+				item.style.backgroundColor = 'blue';
+			})
+
+
+	Чтобы указать несколько стилей елемента - использовать .cssText
+		box.style.cssText = 'background-color: blue; width: 500px';
+
+
+	Создание елементов через скрипты JS(например в React )
+		const div = document.createElement('div');
+
+		document.createTextNode
+
+		div.classList.add('black'); --добавили класс к елементу
+
+
+		document.body.append(div); --добавляем div в конец body
+
+		Также вставка внутрь елемента через append напрямую
+			(допустим что wrapper - класс определенного div в котром лежат другие div, то есть wrapper коллекция в данном сдучае )
+
+			wrapper.append(div) --вставлем в wrapper  елемент div 
+				если wrapper еще не выбран как елемент то можно выбрать и сразу вставить внутрь
+				document.querySelector('.wrapper').append(div);
+
+		Вставка до или после определенного елемента 
+		    hearts[0].before(div) - div елемент вставится ПЕРЕД елементом hearts[0]
+			hearts[0].after(div) - div елемент вставится после елемента hearts[0]
+
+		remove(); - удаляет елемент
+			circles[0].remove();
+			старый вариант - делается через родителя - wrapper.removeChild(hearts[1]);
+
+		Замена елементов
+			hearts[0].replaceWith(circles[0]); --замена елемента hearts[0]. на circles[0]
+			старый вариант через родителя - допустим wrapper - родительский елемент
+				wrapper.replaceChild(circles[0], hearts[0]);
+
+	Редактирование елемента 
+			div.innerHTML = '<h1>HELLO WORLS</h1>'  --вставка любого HTML прямо в елемент
+				также можно использовать textContent - вставка только введенного текста, без парсинга на теги HTML:
+					div.textContent = "Hello world"   + прочитает как текст даже если ввести 
+						div.textContent = '<h1>HELLO WORLS</h1>'  --вставит как "<h1>HELLO WORLS</h1>"
+
+
+		Вставка HTML после или до определенного елемента
+			div.insertAdjacentHTML('спецслово', 'тег HTML'); -2 аргумента, первый - несколько допустимых значений на выбор, куда именно потавить HTML
+	
+Событие и их обработчики 
+	1) <button onclick = "alert()" ..>Нажми меня </button> --напрямую внутри тега 
+	2) Через DOM   (есть проблемы, т.к событие переопределяется при повторении кода + удалить такое событие нельзя)
+		const btn = document.querySelector('button');
+
+		btn.onclick = function() {
+			alert('нажали кнопку ');
+		}
+
+	3) const btn = document.querySelector('button');
+
+
+	   btn.addEventListener('click', () => {    --callback функция, запускается после события 'click'
+	   		alert('click');
+	   	})
+ 
+    + В Том, что события встраиваются в очередь  +  есть параметры для передачи к callback func
+
+    btn.addEventListener('click', (e) => {    --callback функция, запускается после события 'click'
+	   		console.log(e); --выводим событие (где на чем произолшло и тд)
+	   		console.log(e.target); --выводим конкретно объект события (сам елемент)
+	   		e.target.remove(); --удаляем объект события 
+	   	})
+	---------------
+	Удаление событий  через removeEventListener
+
+	btn.removeEventListener('click',nameOfCallbackFunc)
+
+
+	----------
+	Всплытие событий (поднимается событие от детей к родительским елементам)
+	----------
+	Отмена стандартного поведения браузера 
+		Изменение поведения сылки 
+			const link = document.querySelector('a');
+
+			link.addEventListener('click', (event) => {
+					event.preventDefault(); --отменили стандартное поведение
+				}
+			)
+
+	----------------
+	Навешиваем одно и тоже событие на несколько елементов 
+		Допустим на неск кнопок 
+			const btns = document.querySelectorAll('button')--коллекция объектов 
+
+			btns.foreach(btn => {
+				btn.addEventListener('click', deleteElement); --deleteElement название callback функции 
+			})
+	-------------------
+	Опции addEventListener - также есть третий аргумент (см дкмнтцию)
+		btn.addEventListener('click', deleteElement, {once: true});--  {once: true} --отработать однажды
+ 
+---------------------
+Навигация по DOM елементам,data-атрибуты 
+	.childNodes - доступ к нодам(узлам), которые находятся внутри елемента, включая переносы строк, текст и тд
+		document.body.childNodes 
+
+	.firstChild -- первый узел 
+	.lastchild  --последний узел 
+
+	Получить родительский узел елемента
+		.parentNode --можно использовать чтобы найти прародителя через .parentNode.parentNode
+
+	data атрибут - специальный атрибут для помощи указания определенного елемента, места в dom 
+	  Пример: <li data-current = "3"> 3 </li>  --data-current = "3"  --дата атрибут, главное data-
+	  		<li data-close> 3 </li>  --data-close - тоже дата атрибут
+
+	  Чтобы прочитать через CSS селектор используем []  =  '[data-current="3"]'
+
+	Получить следующий (или предыдущий) узел(нода)
+		.nextSibling  --получает слудующий УЗЕЛ  после елемента (не путать со следующим ЕЛЕМЕНТОМ)
+		.previousSibling
+
+	ПОЛУЧЕНИЕ ЕЛЕМЕНТОВ (не узлов) --используем со словом ELEMENT
+
+		.nextElementSibling -- Получаем следующий ЕЛЕМЕНТ 
+		.parentElement      -- Получаем родительский ЕЛЕМЕНТ э
+		.firstElementChild  -- первый Елемент родителя
+
+		Получение всех дочерних елементов (для нод есть childNodes --но он выводит все НОДЫ)
+			К примеру, можно написать с помощью for of
+
+		for (let node of document.body.childNodes) {
+			if (node.nodeName = '#text') {   -- если нода  = текст, то пропускаем шаг цикла и не выводим 
+				continue;
+			}
+			console.log(node)
+		}
+
+Про события на странице проекта 
+	события загрузки
+
+		document.addEventListener('DOMContentLoaded', () => {тут весь JS код, который будет загружен и запущен только
+		после того как загрузится вся DOM структура })
+
+		submit -- событие при отправке формы 
+
+		addForm.addEventListener('submit', () => {}')
+
+Мобильные события 
+
+Async, defer, динамические скрипты 
+	Алгоритм загрузки страницы 	
+		html
+		head
+			метатеги
+			подгружает стили
+		body
+		script 
+
+	Проблема - если поместить script to <head>	
+		1) Т.к страница еще не загрузилась в JS будет ошибка
+		2) загрузка скрипта тормозит начало загрузки страницы 
+
+	Атрибуты для загрузки script: Async, defer
+		DEFER <script defer src=.....> - Defer- продолжать загружать страницу пока загружается скрипт + запустить скрипт когда он загрузитися + весь DOM загрузится 
+
+			defer не блокируют загрузку самой страницы
+			все defer скрипты загружаются и выполняются строго последовательно 
+		--------
+		ASYNC - не зависит от DOM структуры (аккуратно)
+			страница не ждет асинхронных скриптов
+			скрипты запускаются "кто первый загрузился"
+
+
+		Динамически сделанный (загружаемый) script --ведут себя как async
+			const script = document.createElement('script'); --создаем елемент <script>
+			script.src = "js/test.js"; --вводим и определяем атрибут src тега  <script>
+			document.body.append(script); --помещаем созданный елемент script в конец dom дерева body
+
+			можно добавить параметр defer через 
+			script.async = false; 
+
+------------------------------------------------
+
+ClassList и делегирование событий 
+	const btns = document.querySelectorAll('button');
+	console.log(btns[0].classList.length) --получаем кол-во классов первой кнопки через свойство classList
+
+	Методы ClassList
+		classList.item(индекс классса) -- получаем конкретный класс по его порядковому номеру
+		classList.add('имя класса 1 ', 'имя класса 2') --добавляем класс 
+		classList.remove('имя класса') --удаляем выбранный класс у елемента 
+		classList.toggle('имя класса') --удаляем выбранный класс у елемента если он есть, если его нет, то добавляем 
+
+		проверка на наличие определенного класса у елемента
+			if(btns[1].classList.contains('red')) {
+				console.log('red есть')
+			}
+	-----------
+	Делегирование событий - назначаем события, к примеру, на сгенерированные динамически елементы. Вешаем события от род
+							ителя на его потомков (число которых, допустим, может увеличиться)
+
+		const wrapper = document.querySelector('.имяКлассаРодительскогоБлока');
+		
+		wrapper.addEventListener('click', (event) => {
+			if(event.target //Чтобы проверить что про по объекту кликнули, что у него есть target click событие 
+				&& event.target.tagName =='BUTTON') -- проверяем что объект куда нажали это BUTTON --также можно к пример
+															 проверять на наличие класса у объекта куда нажали:
+															 event.target.classList.contains('blue') 
+
+															 Также через matches
+															  event.target.matches("cssSelector по типу button.red") 
+				{
+				console.log('button has been pressed')	
+
+			}
+		}) 	
+
+	-----------------------------------
+	Скрипты и время их выполнения 
+
+		const timerId = setTimeout(function(){
+			console.log('start')
+		},2000)    -- 2 аргумент время в мс через какое запустится функция (1 аргумент )
+
+		Также можно передавать третьим параметром входные аругменты 
+
+			const timerId = setTimeout(function(text){
+				console.log(text)
+			},2000, 'HELLLO' ) -- 3 аргумент 
+
+		Также можно передавать готовую функцию
+
+			function logger() {console.log('logtext')};
+
+			const timerId = setTimeout(logger, 2000 );
+		
+		//.......................................................................... 
+		Можно остановить таймер с помощью clearINterval(timerId); -- где timerId функция в константе 
+
+		К примеру кидаем функцию с таймером на нажатие кнопки 
+
+			const btn = document.querySelector('.btn'); //выбор первой попавшейся кнопки 
+
+			btn.addEventListener('click', () = {
+				const timerId = setTimeout(logger, 2000 ); // Проблема, что timerId только локальная переменная(см решение ниже)
+			});
+
+		clearINterval(timerId) -- не можем использовать т.к не определена ГЛОБАЛЬНО 
+
+		// ......................................................................
+		setInterval -- интервал срабатывания раз в интервал 
+			const btn = document.querySelector('.btn'); //выбор первой попавшейся кнопки 
+
+			btn.addEventListener('click', () = {
+				const timerId = setInterval(logger, 2000 );
+			});
+
+		// ......................................................................
+		Чтобы уйти от проблемы локальной переменной таймера, объявляем ее глобально, а потом переопределяем
+		Теперь можно использовать 
+			const btn = document.querySelector('.btn'); //выбор первой попавшейся кнопки 
+			let timerId;
+
+
+			btn.addEventListener('click', () = {
+				timerId = setTimeout(logger, 2000 ); // Тут меняем глобальную переменную
+			});
+
+			clearINterval(timerId); /*Теперь можно использовать т.к обращаемся к глобальной переменной */
+
+// Работа с датами 
+	const now = new Date('2020-05-01');
+	const now = new Date(2020, 5, 1, 20); // Дата учитывает часовые пояса 
+
+	Дата Хранится в МЛС - отсчитывается от 1970-01-01
+		const now = new Date(0);
+
+	Методы получения части дат
+		const now = new Date('2020-05-01');
+
+		now.getFullYear();
+		now.getMonth()
+
+		Также могут понадобится теже методы только для UTC
+			now.getUTCHours();
+
+	Разница с UTC 
+		now.getTimezoneOffset();
+
+	Получение мс с 1970 
+		now.getTime();
+
+	----------
+	Установка даты 
+
+		now.setHours(18); -- Обратить внимание что дата может установится в формате UTC 
+
+		now.setHours(18, 40 ); // часы, минуты
+
+		Присутствувет автоисправление если задать допустим часов больше 24
+			now.setHours(30);
+
+
+/////////////////////////////////////////////
+// Параметры документа, окна и работа с ними 
+	
+Сущности
+	Window
+	screen
+
+Свойства 
+	.clientHeight()
+	.clientWidth()
+
+Возможность получать и изменять размеры объекта с учетом прокрутки и тд
+	scrollWidth
+
+	При этом изменения все равно через .style.
+
+получение координат 
+	.getBoundClientRect() --При этом отсчет отличается от CSS (в js отсчет идет от левого верхнего)
+	.getBoundClientRect().top -- конкретное свойство 
+
+
+получение примененных стилей ПРОПИСАННЫХ в CSS(можно только прочитать)
+	Пример 
+		const style = window.getComputedStyle(box)-- получение стилей бокса 
+
+Получение свойств document через document.documentElement
+	ex
+		 document.documentElement.scrollTop --сколько пиксеелей пролистал 
+
+----------------------------------
+Модальное окно 
+
+-----------------------------------
+Функции-конструкторы
+	function User(name, id) { // функция конструктор, при вызове создат объект 
+		this.name = name;
+		this.id = id;
+		this.himan = true; 
+		//можно записать методы работа с объектом 
+		this.hello = function() {
+			console.log(`Hello ${this.name}`);
+		}
+	}
+
+	//Cоздаем новый объект через new
+	const ivan = new User('Ivan', 28);
+	const alex = new User('Alex', 21);
+
+	----------------
+	//prototype -- метод когда допустим нет доступа к прототипу но нужно его модицировать
+	User.prototype.exit = function(name) {
+		console.log(`Пользователь ${this.name} ушел`);
+	}
+	//Модификации будут прототипно наследоваться, появятся у всех потомков после объ
+	//явления прототипа допустим ниже 
+
+	ivan.exit();
+
+	// В ES6 появились классы, изначально их не было 
+------------------------------------------------
+Контекст вызова функций this
+	Функция может вызываеться 4-мя способами, в каждом контекст будет отличаться 
+
+	1) Просто вызов
+		function showThis(a, b) {
+			console.log(this);//this - контекст будет сылаться на глобальный объект window (это беp строгово режима 'use strict' с ним будет undefined)
+			function sum () {
+				console.log(this); // window \ undefined
+				return this.a + this.b // будет ошибка т.к this = window \ undefined
+			}
+
+			console.log(sum());
+		}
+
+		showthis();
+	---------------------------------
+	2) контекст у методов объекта = сам объект 
+		
+		const obj = {
+			a:20,
+			b:15,
+			sum: function() {
+				console.log(this);//Вернется объект из которого вызывается метод
+			}
+		}
+
+		obj.sum();//Вернется объект из которого вызывается метод
+		-----
+		Но при этом если вызывать функцию в методе объекта, все равно будет undefined
+
+		const obj = {
+			a:20,
+			b:15,
+			sum: function() {
+				function shout() {
+					console.log(this);//undefined
+				}
+				shout();//undefined Т.к это просто вызов функции (пусть и внутри метода объекта)
+			}
+		}
+	------------------------------
+
+	3) this в конструкторах - контекст идет на только что созданный объект
+		     который создается как новый екземпляр объекта.
+     ---------------------------
+    4) Ручная привязка this: call, apply, bind.
+
+	5) контект вызова в обработчиках событий 
+   У стрелочной функции нет своего контекста вызова - 
+   	она берет контекст родителя(если применяется в обработчиках событий  то будет undefined)
+
+--------------------------------
+Классы 
+	class Rectangle {    // Всегда начинается с большой буквы 
+		constructor(height, width ){ //конструктор для создания екземпляров
+			this.height = height;
+			this.weight = weight;
+		}
+
+		caclArea(){ //Метод (без function)
+			return this.height * this.width;
+
+		}
+	}
+
+	//использование 
+	const square = new Rectangle(10, 10); //Создание екземпляра square класса Rectangle
+	console.log(square.caclArea());// Используем метод экземпляра класса
+
+	const long = new Rectangle(20,100)//Создание екземпляра long класса Rectangle
+	console.log(long.caclArea());// Используем метод экземпляра класса
+	--------------
+	Принципы ООП
+		Абстракция - когда отделяем концепцию от ее екземпляра
+			(класс- концепция - шаблон на основе которого мы создаем 
+			 екземпляр класса -созданы на основе шаблона (класса, концепции)) 
+		---------------
+		Наследование - способность объекта или класса базироваться на другой объекте или классе 
+
+		//создаем класс на основе класса Rectangle
+
+		class ColoredRectangleWithText extends Rectangle {
+			constructor(height, width, text, bgColor){
+				//Чтобы не писать присваивание как у родительского класса: this.height = height;
+				// Используем:
+					super(height,width);//Супер конструктор родителя (!!! Должна быть всегда первой строчкой в конструкторе)
+					this.text = text;
+					this.bgColor = bgColor;
+			}
+
+			showMyProps(){
+				console.log(`Текст : ${this.text}, цвет: ${this.bgColor}`);
+			}
+		}
+
+		const div = new ColoredRectangleWithText(25, 10, 'Hello World', 'red');
+
+		div.showMyProps();
+		console.log(div.caclArea());
+
+----------------
+Rest оператор и параметры по умолчанию
+	Синтаксис остаточных параметров функции позволяет представлять неограниченное множество аргументов в виде массива. - через Rest
+
+		const log = function(a,b, ...rest) {
+			console.log(a,b, rest);
+		}
+
+		log('basic', 'rest', 'operator', 'usage');
+
+	Также есть оператор который наоборот массив елементов раскладывает на отдельные елементы
+
+	-------------
+	Параметры по умолчанию позволяют задавать формальным параметрам функции значения по умолчанию в случае, если функция вызвана без аргументов, 
+	или если параметру явным образом передано значение undefined.
+		function cacl(number, basis = 2) { //если не передадим параметр basis то по умолчанию будет 2
+		//Старый костыль был таким: basis = basis || 2; //через оператор или получаем либо 	basis если он определен либо 2
+			console.log(number * basis);
+		}
+
+---------------------------------
+Локальные сервера 
+	Запросы 
+		get - post запросы 
+		ajax - серверная технология
+
+	open server  
+		чтобы мы могли отправлять post запросы, т.к нельзя отправить данные на страницу
+-------------
+JSON 
+	const person = {
+		name: "Alex",
+		tel: "+744444444",
+		parents: {
+			dad: "Oleg",
+			mom: "Olga"
+		}
+	};
+
+	Встроенные объекты JSON 
+		JSON.stringify(person) // Переводит объект в JSON формат 
+
+	Парсинг JSON 
+		JSON.parse(JSON.stringify(person))
+
+
+	Глубокие копии через  JSON.parse(JSON.stringify
+		clone = JSON.parse(JSON.stringify(person))
+-----------------------
+ajax
+	Обмен данными с сервером без перезагрузки ВСЕЙ страницы 
+
+	function serv_api {
+		const request = new XMLHttpRequest();//запрос на сервер 
+
+		МЕТОДЫ XMLHttpRequest
+			OPEN - собирает настройки для подключения 
+
+			request.open(method, //get \ post
+						 url, //Относительно index HTML
+						 async //true \ false 
+						 login,
+						 pass
+					     );
+			//Заголовки
+			request.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+			request.send(body--если post запрос);
+
+		Свойства объекта XMLHttpRequest
+			status  //код ответа
+			statusText
+			response //результат
+			readyState // 5 вариантов 
+
+		События 
+			request.addEventListener('readystatechange / load', () => {}) //load
+	}
+---------------------------------
+Promise (Обещания) --Последовательные действия(действия - только если выполнились 
+												определенные действия ДО)
+	Чтобы не писать через setTimeout(()=>{}, time) 
+
+	const req = new Promise(function(resolve, reject) {
+			....
+			resolve(параметры );
+	})
+
+	req.then(()=>{} )//код если успешно вып все обещания выше  
+
+	reject()
+		.catch
+	.finally()
+
+	Promise.all([promise1(), promise2()]).then(()=> {
+		console.log(All promises have been done)
+	});
+
+	Promise.race ([].then()) // Запускает когда выполнился первый promise(быстрее всех)
+
+----------------------------------------------------------------	
+Fetch API (Application Programming Interface)
+	Как пример DOM API (API для работы со страничкой)
+
+	fetch API - встроена в браузер (общение с сервером, построена на promises)
+			  - улучшенная замена http request 
+			  
+-----------------------------------------------------------------
+методы перебора массивов 
 
 
 
@@ -87,4 +851,11 @@ promt  - только внутри браузера
 
 
 
+
+
+
+
+
+
+		
 
