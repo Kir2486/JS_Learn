@@ -1,0 +1,29 @@
+body{
+    background-color: #efefef;
+    
+        
+}
+
+.title {
+    font-size: 35px;
+    color: #4851c4;
+}
+
+.galery{
+    
+}
+
+.galery td{
+    width: 33%;
+}
+
+.galery td img {
+    width: 100%;
+}
+
+.videocontainer{}
+
+.center{
+    margin:0 auto;
+    text-align: center;
+}

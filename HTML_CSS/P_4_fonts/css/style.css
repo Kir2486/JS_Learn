@@ -1,0 +1,35 @@
+/*Способ подтянуть шрифты через @import*/
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');*/
+
+
+/*Подтягиваем шрифт с локала через @font_face*/
+@font-face {
+    font-family:('Montserrat-Bold');
+    src:url("/fonts/Montserrat-Bold.ttf");
+}
+
+
+.block_1{
+    font-family: 'Montserrat-Bold', 'Areal', sans-serif;
+    font-weight: 100;/*жирность шрифта можем использовать только ту жирность которую мы импортировали - если это не стандартый шрифт*/
+    font-style: italic;
+    color:aqua;/*Цвет шрифта через предопределенное слово*/
+    text-transform: uppercase; /*Трансформация текста*/
+    line-height: 100px;/*высота строки - отступы от других строк*/
+    text-align:right;/*Выравнивание текста*/
+}
+
+.block_2{
+    font-size: 50px;
+    color:#4e9fc7;/*Цвет шрифта через номер цвета*/
+    text-decoration: line-through;/*модификатор(декоратор) текста*/
+}
+
+.block_3{
+    font-size: 40px;
+    color: rgb(125, 252,8);/*Цвет шрифта через rgb*/
+    background-color: red/*Цвет фона */
+}
+
+
+

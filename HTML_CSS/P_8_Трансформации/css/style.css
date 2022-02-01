@@ -1,0 +1,65 @@
+.block {
+    width: 100px;
+    height: 50px;
+    background-color: pink;
+/*    transform: scale(2,3);*/
+    -ms-box-sizing: border-box;
+    position: relative;
+    animation-name: bounce;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+}
+
+/*Трансформация
+transform
+    none - по умолчанию
+    translate () - сдвигает елементе на новое место, использхуя координаты
+    scale() - масштабирует елемент
+    rotate() - поворачивает елемент на градусы rotate(45deg)
+    skew(20deg,30deg)
+
+*/
+
+/*Анимация
+Ключевые кадры - для указания свойств анимации
+    Ключевые слова
+        from to
+    свойства animation
+
+*/
+.block:hover{
+    animation-play-state: paused;
+}
+
+
+@keyframes bounce{
+    from{
+        top:0;
+    }
+
+    25% {
+        top: 50px;
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        top:100px;
+        animation-timing-function: ease-out;
+    }
+
+    75% {
+        top:50px;
+        animation-timing-function: linear;
+    }
+    to{
+        top:0;
+    }
+
+}
+
+/*Вендорные префиксы - свойство только в указанном браузере*/
+
+
+
+

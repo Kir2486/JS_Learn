@@ -1,0 +1,69 @@
+.item-box{
+    box-sizing: border-box;
+    width: 300px;
+    background-color: orange;
+    padding:20px;
+    box-shadow: 5px 5px 2px 1px red ;
+}
+
+
+.item-box2{
+    display:flex;
+    flex-direction: row;/*меняем ось расположение column-reverse
+                                row-reverse etc*/
+    justify-content: space-between;
+    flex-wrap: wrap;/*пеенос блоков */
+    align-items: center; /*выставление центирование и тд по оси*/
+}
+
+.item-box__item{
+    width: 100px;
+    box-sizing: border-box;
+    background-color:cornflowerblue;
+    padding:20px;
+}
+
+/*Выравнивание и позиционирование*/
+
+.pos_main{
+    background-color: aquamarine;
+    height: 10000px;
+    width: 200px;
+    margin:auto;/*при margin:auto; центироуется по вертикали и горизнотали
+    также есть 0 auto and auto 0*/
+    border: 5px blue solid;
+    position:relative;
+}
+
+.pos_1{
+    background-color: red;
+    position: relative;/*по дефолту static relative--относительно родителя */
+    top: 10px;
+    left:5px;
+}
+
+.pos_2{
+    background-color: green
+}
+
+.pos_3{
+    background-color: yellow;
+    position: absolute; /*absolute зависит от position родителя - если стоит по дефолту static то будет отчитываться от окна браузера
+    если relative etc то от родительского елемента */
+    top :0;
+    left:0;
+}
+
+.pos_4{
+    background-color:darkslateblue;
+    position: fixed; /*absolute зависит от position родителя - если стоит по дефолту static то будет отчитываться от окна браузера
+    если relative etc то от родительского елемента */
+    top :0;
+    left:0;
+}
+
+.pos_5{
+    background-color:black;
+    position: sticky;/*при прокрутке остается сверху*/
+    top :0;
+}

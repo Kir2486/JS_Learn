@@ -1,0 +1,66 @@
+a{
+    font-size: 20px;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+/*Псевдокласс
+hover
+active
+visited
+focus - елементы активированы посредством курсора или TAB почти как active
+
+
+*/
+a:focus{
+    color:green;
+}
+
+/*псевдокласс
+disabled
+enabled
+checked --только для checkbox etc
+*/
+.input1:enabled{
+    background-color: red;
+}
+
+
+.input2:checked{
+    height:30px;
+    width: 30px;
+
+}
+
+/*Структурные псевдоклассы
+nth-child
+nth-last-child
+first-child
+*/
+.item-box__item:nth-last-child()(even){
+    background-color: orange;
+}
+
+/*Псевдоклас отрицания */
+p:not(.article){
+    background-color: red;
+}
+
+
+.transition-block{
+    width:  100px;
+    height: 100px;
+    background-color:orange;
+    transition-property: width, height, background-color;
+    transition-duration: .9s, .9s, 2s;
+    transition-timing-function: ease, linear, ease; /*Разная временная функция для изменений свойст объекта*/
+    transition-delay: .2s;
+}
+/*свойство transition
+        переходы - анимирировать css свойство на новое с течением времени*/
+
+.transition-block:hover{
+    width:  300px;
+    height: 300px;
+    background-color:#9f35ad;
+}
